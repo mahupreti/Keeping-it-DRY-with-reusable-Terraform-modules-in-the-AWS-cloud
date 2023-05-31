@@ -61,6 +61,7 @@ module "lb" {
   vpc_id                                = module.vpc.vpc_id
   public_loadbalancer_target_group_arn  = module.lb.public_loadbalancer_target_group_arn
   private_loadbalancer_target_group_arn = module.lb.private_loadbalancer_target_group_arn
+  aws_acm_certificate_validation_acm_certificate_validation_arn = module.acm.aws_acm_certificate_validation_acm_certificate_validation_arn
 
 
 }

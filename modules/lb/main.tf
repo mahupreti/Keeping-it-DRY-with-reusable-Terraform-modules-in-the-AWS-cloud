@@ -29,15 +29,15 @@ resource "aws_lb_listener" "alb_public_http_listener" {
   }
 }
 
-resource "aws_iam_server_certificate" "cert" {
-  name_prefix      = "example-cert"
-  certificate_body = file("../modules/lb/public.pem")
-  private_key = file("../modules/lb/private.pem")
+# resource "aws_iam_server_certificate" "cert" {
+#   name_prefix      = "example-cert"
+#   certificate_body = file("../modules/lb/public.pem")
+#   private_key = file("../modules/lb/private.pem")
 
-  lifecycle {
-    create_before_destroy = true
-  }
-}
+#   lifecycle {
+#     create_before_destroy = true
+#   }
+# }
 
 
 # create a listener on port 443 with forward action
@@ -46,7 +46,7 @@ resource "aws_lb_listener" "alb_public_https_listener" {
   port               = 443
   protocol           = "HTTPS"
   ssl_policy         = "ELBSecurityPolicy-2016-08"
-  certificate_arn    =  aws_iam_server_certificate.cert.arn
+  certificate_arn    =  var.aws_acm_certificate_validation_acm_certificate_validation_arn
 
 
   default_action {
@@ -122,7 +122,7 @@ resource "aws_lb_listener" "alb_private_https_listener" {
   port               = 443
   protocol           = "HTTPS"
   ssl_policy         = "ELBSecurityPolicy-2016-08"
-  certificate_arn    =  aws_iam_server_certificate.cert.arn
+  certificate_arn    =  var.aws_acm_certificate_validation_acm_certificate_validation_arn
 
 
 
