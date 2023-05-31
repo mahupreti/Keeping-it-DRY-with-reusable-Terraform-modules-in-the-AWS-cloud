@@ -1,8 +1,8 @@
 terraform {
   backend "s3" {
-    bucket  = "terraform-3tier-architecture"
-    key     = "3tier-architecture.tfstate"
-    region  = "us-east-1"
+    bucket  = "terraform-2tier-architecture"
+    key     = "2tier-architecture.tfstate"
+    region  = var.region
     profile = "default"
 
   }
