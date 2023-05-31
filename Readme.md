@@ -6,3 +6,6 @@ If you want to learn more about my approach and the challenges I faced during th
 
 https://lnkd.in/dYy2-bbK
 
+Image :
+
+![2-tier-web-application-architecture](2tier-web-application-architecture.png)
